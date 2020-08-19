@@ -3,10 +3,10 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import fileUpload from 'express-fileupload';
 import path from 'path';
-import uploadRoute from './routes/uploadRoute';
+
 import userRoute from './routes/userRoute';
 import blogRoute from './routes/blogRoute';
-import orderRoute from './routes/orderRoute';
+
 import articleRoute from './routes/articleRoute';
 import config from './config';
 
@@ -31,11 +31,8 @@ app.use((req, res, next) => {
   next();
 });
 app.use(bodyParser.json());
-
-app.use('/api/uploads', uploadRoute);
 app.use('/api/blogs', blogRoute);
 app.use('/api/users', userRoute);
-app.use('/api/orders', orderRoute);
 app.use('/api/articles', articleRoute);
 
 app.get('/api/config/paypal', (req, res) => {
